@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../widgets/barcode_icon_button.dart';
+import '../widgets/search_text_form_field.dart';
 
 class SearchProductScreen extends StatelessWidget {
   static const routeName = '/SearchProductScreen';
@@ -17,35 +18,9 @@ class SearchProductScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Expanded(
-                  child: TextFormField(
-                    controller: _barcode,
-                    decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.all(0),
-                      prefixIcon: const Icon(Icons.search),
-                      hintText: 'Scan Barcode or search for product',
-                      hintStyle: const TextStyle(fontSize: 13),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      suffixIcon: const Icon(
-                        FontAwesomeIcons.solidTimesCircle,
-                        size: 14,
-                      ),
-                    ),
-                  ),
-                ),
+                SearchTextFormField(barcode: _barcode),
                 const SizedBox(width: 10),
-                Container(
-                  height: 46,
-                  width: 60,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    border: Border.all(width: 0.5),
-                    // color: Colors.yellow,
-                  ),
-                  child: const Icon(FontAwesomeIcons.barcode, size: 46),
-                ),
+                BarcodeIconButton(),
               ],
             ),
             const SizedBox(height: 20),

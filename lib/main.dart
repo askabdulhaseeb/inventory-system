@@ -2,7 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'database/user_local_data.dart';
 import 'screens/addProductScreen/add_product_screen.dart';
-import 'screens/loginScreen/login_screen.dart';
+import 'screens/auth/loginScreen/login_screen.dart';
+import 'screens/auth/signupScreen/signup_screen.dart';
 import 'screens/searchScreen/search_screen.dart';
 
 Future<void> main() async {
@@ -18,11 +19,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Inventory System',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.grey,
       ),
-      home: LoginScreen(),
+      home: (UserLocalData?.getUID() != null && UserLocalData?.getUID() != '')
+          ? SearchProductScreen()
+          : LoginScreen(),
       routes: {
         LoginScreen.routeName: (ctx) => LoginScreen(),
+        SignupScreen.routeName: (ctx) => SignupScreen(),
         SearchProductScreen.routeName: (ctx) => SearchProductScreen(),
         AddProductScreen.routeName: (ctx) => AddProductScreen(),
       },
