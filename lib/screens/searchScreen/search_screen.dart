@@ -3,14 +3,24 @@ import 'package:inventory_app/screens/addProductScreen/add_product_screen.dart';
 import '../widgets/barcode_icon_button.dart';
 import '../widgets/search_text_form_field.dart';
 
-class SearchProductScreen extends StatelessWidget {
+class SearchProductScreen extends StatefulWidget {
   static const routeName = '/SearchProductScreen';
-  final TextEditingController _barcode = TextEditingController();
+  @override
+  _SearchProductScreenState createState() => _SearchProductScreenState();
+}
 
-  void _onScan() {}
+class _SearchProductScreenState extends State<SearchProductScreen> {
+  final TextEditingController _barcode = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    String barcode = '';
+    void _onScan(String result) {
+      setState(() {
+        barcode = result;
+      });
+    }
+
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Padding(
@@ -27,6 +37,11 @@ class SearchProductScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 20),
+            if (barcode.isNotEmpty)
+              Text(
+                'Barcode $barcode',
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
             Container(
               width: size.width / 2,
               height: 40,
