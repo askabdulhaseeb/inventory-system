@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inventory_app/screens/auth/signupScreen/login_line.dart';
+import 'package:inventory_app/utils/copyrights.dart';
 import '../widgets/email_text_form_field.dart';
 import '../widgets/name_text_form_field.dart';
 import '../widgets/password_text_form_field.dart';
@@ -43,6 +44,8 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
               const SizedBox(height: 20),
               LoginnLine(),
+              const SizedBox(height: 30),
+              Copyrights(),
             ],
           ),
         ),

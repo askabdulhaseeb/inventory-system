@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inventory_app/screens/addProductScreen/add_product_screen.dart';
+import 'package:inventory_app/utils/copyrights.dart';
 import '../widgets/barcode_icon_button.dart';
 import '../widgets/search_text_form_field.dart';
 
@@ -28,6 +29,7 @@ class _SearchProductScreenState extends State<SearchProductScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -70,7 +72,9 @@ class _SearchProductScreenState extends State<SearchProductScreen> {
                       size: size.width / 5, color: Colors.black),
                 ),
               ),
-            )
+            ),
+            const SizedBox(height: 30),
+            Copyrights(),
           ],
         ),
       ),
