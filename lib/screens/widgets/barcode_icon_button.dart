@@ -35,16 +35,16 @@ class _BarcodeIconButtonState extends State<BarcodeIconButton> {
         // );
         // print('Stored in Cart');
 
-        setState(() => barcode = scanResult);
+        // setState(() => barcode = scanResult);
+        widget.onScan(scanResult);
       } on PlatformException catch (e) {
         showErrorToast('Product Not Found');
       }
     }
 
     return GestureDetector(
-      onTap: () {
-        barcodeScanning();
-        widget.onScan(barcode);
+      onTap: () async {
+        await barcodeScanning();
       },
       child: Container(
         height: 46,
