@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:inventory_app/screens/addProductScreen/add_product_screen.dart';
 import '../widgets/barcode_icon_button.dart';
 import '../widgets/search_text_form_field.dart';
 
 class SearchProductScreen extends StatelessWidget {
   static const routeName = '/SearchProductScreen';
   final TextEditingController _barcode = TextEditingController();
+
+  void _onScan() {}
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +23,7 @@ class SearchProductScreen extends StatelessWidget {
               children: [
                 SearchTextFormField(barcode: _barcode),
                 const SizedBox(width: 10),
-                BarcodeIconButton(),
+                BarcodeIconButton(onScan: _onScan),
               ],
             ),
             const SizedBox(height: 20),
@@ -39,7 +42,9 @@ class SearchProductScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pushNamed(AddProductScreen.routeName);
+              },
               child: CircleAvatar(
                 radius: size.width / 10 + 2,
                 backgroundColor: Colors.black,

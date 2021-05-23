@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BarcodeIconButton extends StatelessWidget {
+  final Function onScan;
   const BarcodeIconButton({
+    @required this.onScan,
     Key key,
   }) : super(key: key);
 

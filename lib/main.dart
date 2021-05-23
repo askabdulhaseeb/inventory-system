@@ -19,7 +19,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Inventory System',
       theme: ThemeData(
-        primarySwatch: Colors.grey,
+        primaryColor: const Color(0xFF697189),
+        scaffoldBackgroundColor: const Color(0xFFEFF1F8),
       ),
       home: (UserLocalData?.getUID() != null && UserLocalData?.getUID() != '')
           ? SearchProductScreen()
